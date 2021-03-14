@@ -25,7 +25,7 @@ setup(
         'nmcli': ['py.typed'],
     },
     test_suite='tests',
-    python_requires='>=3.7',
+    python_requires='>=3.6.8',
     tests_require=[
         'pytest'
     ],
