@@ -34,7 +34,7 @@ class SystemCommand(SystemCommandInterface):
         c = ['sudo', 'nmcli'] if self._use_sudo else ['nmcli']
         commands = c + parameters
         try:
-            r = self._run(commands, capture_output=True,
+            r = self._run(commands, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                           check=True, env={'LANG': 'C'})
             return r.stdout.decode('utf-8')
         except CalledProcessError as e:
