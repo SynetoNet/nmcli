@@ -26,7 +26,7 @@ class SystemCommand(SystemCommandInterface):
 
     def __init__(self, subprocess_run=subprocess.run):
         self._run = subprocess_run
-        self._use_sudo = True
+        self._use_sudo = False
 
     def nmcli(self, parameters: CommandParameter) -> str:
         if isinstance(parameters, str):
