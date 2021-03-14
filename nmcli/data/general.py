@@ -24,7 +24,7 @@ class General:
         }
 
     @classmethod
-    def parse(cls, text: str) -> General:
+    def parse(cls, text: str):
         m = re.search(
             r'^([\S\s]+)\s{2}(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(\S+)\s*', text)
         if m:

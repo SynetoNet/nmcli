@@ -54,7 +54,7 @@ class DeviceWifi:
         }
 
     @classmethod
-    def parse(cls, text: str) -> DeviceWifi:
+    def parse(cls, text: str):
         m = re.search(
             r'^(\*|\s):(.*):(.*):(\d+):(\d+)\sMbit\/s:(\d+):(.*)$', text)
         if m:

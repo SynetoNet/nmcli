@@ -22,7 +22,7 @@ class Connection:
         }
 
     @classmethod
-    def parse(cls, text: str) -> Connection:
+    def parse(cls, text: str):
         m = re.search(r'^([\S\s]+)\s{2}(\S+)\s{2}(\S+)\s+(\S+)\s*', text)
         if m:
             name, uuid, conn_type, device = m.groups()
