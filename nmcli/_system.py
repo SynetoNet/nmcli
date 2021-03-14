@@ -1,4 +1,4 @@
-from subprocess import CalledProcessError, run
+import subprocess
 from typing import List, Union
 
 from ._exception import (ConnectionActivateFailedException,
@@ -24,7 +24,7 @@ class SystemCommandInterface:
 
 class SystemCommand(SystemCommandInterface):
 
-    def __init__(self, subprocess_run=run):
+    def __init__(self, subprocess_run=subprocess.run):
         self._run = subprocess_run
         self._use_sudo = True
 
@@ -37,7 +37,7 @@ class SystemCommand(SystemCommandInterface):
             r = self._run(commands, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                           check=True, env={'LANG': 'C'})
             return r.stdout.decode('utf-8')
-        except CalledProcessError as e:
+        except subprocess.CalledProcessError as e:
             rc = e.returncode
             stderr = e.stderr.decode('utf-8')
             if rc == 2:
