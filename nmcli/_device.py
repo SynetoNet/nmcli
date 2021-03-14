@@ -93,7 +93,7 @@ class DeviceControl(DeviceControlInterface):
         return results
 
     def show(self, ifname: str) -> DeviceDetails:
-        r = self._syscmd.nmcli(['device', '-f', 'all', 'show', ifname])
+        r = self._syscmd.nmcli(['-f', 'all', 'device', 'show', ifname])
         results = {}
         for row in r.split('\n'):
             m = re.search(r'^(\S+):\s*([\S\s]+)\s*', row)
@@ -103,7 +103,7 @@ class DeviceControl(DeviceControlInterface):
         return results
 
     def show_all(self) -> List[DeviceDetails]:
-        r = self._syscmd.nmcli(['device', '-f', 'all', 'show'])
+        r = self._syscmd.nmcli(['-f', 'all', 'device', 'show'])
         results = []
         details: DeviceDetails = {}
         for row in r.split('\n'):
